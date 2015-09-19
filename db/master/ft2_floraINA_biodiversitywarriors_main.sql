@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 14, 2015 at 02:28 PM
+-- Generation Time: Sep 19, 2015 at 04:11 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -17,16 +17,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `ft2_floraINA_peerkalbar_main`
+-- Database: `ft2_floraINA_biodiversitywarriors_main`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peerkalbar_coll`
+-- Table structure for table `biodiversitywarriors_coll`
 --
 
-CREATE TABLE IF NOT EXISTS `peerkalbar_coll` (
+CREATE TABLE IF NOT EXISTS `biodiversitywarriors_coll` (
 `id` int(11) NOT NULL,
   `collCode` varchar(50) NOT NULL,
   `dateColl` date DEFAULT NULL,
@@ -36,29 +36,29 @@ CREATE TABLE IF NOT EXISTS `peerkalbar_coll` (
   `notes` varchar(1000) DEFAULT NULL,
   `deposit` varchar(200) DEFAULT NULL,
   `n_status` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=540 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peerkalbar_collector`
+-- Table structure for table `biodiversitywarriors_collector`
 --
 
-CREATE TABLE IF NOT EXISTS `peerkalbar_collector` (
+CREATE TABLE IF NOT EXISTS `biodiversitywarriors_collector` (
 `id` int(11) NOT NULL,
   `collID` int(11) NOT NULL,
   `personID` int(11) NOT NULL,
   `order` int(11) NOT NULL DEFAULT '0',
   `n_status` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=531 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peerkalbar_det`
+-- Table structure for table `biodiversitywarriors_det`
 --
 
-CREATE TABLE IF NOT EXISTS `peerkalbar_det` (
+CREATE TABLE IF NOT EXISTS `biodiversitywarriors_det` (
 `id` int(11) NOT NULL,
   `indivID` int(11) NOT NULL,
   `personID` int(11) NOT NULL,
@@ -68,15 +68,15 @@ CREATE TABLE IF NOT EXISTS `peerkalbar_det` (
   `using` varchar(1000) DEFAULT NULL,
   `notes` varchar(1500) DEFAULT NULL,
   `n_status` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=634 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peerkalbar_img`
+-- Table structure for table `biodiversitywarriors_img`
 --
 
-CREATE TABLE IF NOT EXISTS `peerkalbar_img` (
+CREATE TABLE IF NOT EXISTS `biodiversitywarriors_img` (
 `id` int(11) NOT NULL,
   `indivID` int(11) NOT NULL,
   `personID` int(11) NOT NULL,
@@ -87,30 +87,30 @@ CREATE TABLE IF NOT EXISTS `peerkalbar_img` (
   `notes` varchar(300) DEFAULT NULL,
   `mimetype` varchar(50) DEFAULT NULL,
   `n_status` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2116 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peerkalbar_indiv`
+-- Table structure for table `biodiversitywarriors_indiv`
 --
 
-CREATE TABLE IF NOT EXISTS `peerkalbar_indiv` (
+CREATE TABLE IF NOT EXISTS `biodiversitywarriors_indiv` (
 `id` int(11) NOT NULL,
   `locnID` int(11) NOT NULL DEFAULT '0',
   `plot` varchar(100) DEFAULT NULL COMMENT 'The unique code for the sample plot (if any)',
   `tag` int(11) DEFAULT '0' COMMENT 'The plant/tree number within the sample plot',
   `personID` int(11) NOT NULL COMMENT 'The creator for this indiv record',
   `n_status` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=684 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peerkalbar_locn`
+-- Table structure for table `biodiversitywarriors_locn`
 --
 
-CREATE TABLE IF NOT EXISTS `peerkalbar_locn` (
+CREATE TABLE IF NOT EXISTS `biodiversitywarriors_locn` (
 `id` int(11) NOT NULL,
   `longitude` float(9,5) NOT NULL COMMENT 'Longitude in decimal degrees, Datum WGS84',
   `latitude` float(8,5) NOT NULL COMMENT 'Latitude in decimal degrees, Datum WGS84',
@@ -123,15 +123,15 @@ CREATE TABLE IF NOT EXISTS `peerkalbar_locn` (
   `country` varchar(100) NOT NULL DEFAULT 'Indonesia',
   `notes` varchar(500) DEFAULT NULL COMMENT 'Other notes about place',
   `n_status` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=702 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peerkalbar_obs`
+-- Table structure for table `biodiversitywarriors_obs`
 --
 
-CREATE TABLE IF NOT EXISTS `peerkalbar_obs` (
+CREATE TABLE IF NOT EXISTS `biodiversitywarriors_obs` (
 `id` int(11) NOT NULL,
   `indivID` int(11) NOT NULL,
   `date` date NOT NULL COMMENT 'Date of the observation',
@@ -148,15 +148,15 @@ CREATE TABLE IF NOT EXISTS `peerkalbar_obs` (
   `char_lf_insert_alt` tinyint(1) DEFAULT NULL,
   `char_lf_insert_opp` tinyint(1) DEFAULT NULL,
   `n_status` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=637 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peerkalbar_person`
+-- Table structure for table `biodiversitywarriors_person`
 --
 
-CREATE TABLE IF NOT EXISTS `peerkalbar_person` (
+CREATE TABLE IF NOT EXISTS `biodiversitywarriors_person` (
 `id` int(11) NOT NULL,
   `name` varchar(200) NOT NULL,
   `email` varchar(200) NOT NULL,
@@ -167,15 +167,22 @@ CREATE TABLE IF NOT EXISTS `peerkalbar_person` (
   `institutions` varchar(100) DEFAULT NULL,
   `project` varchar(100) DEFAULT NULL,
   `n_status` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=201 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `biodiversitywarriors_person`
+--
+
+INSERT INTO `biodiversitywarriors_person` (`id`, `name`, `email`, `twitter`, `website`, `phone`, `short_namecode`, `institutions`, `project`, `n_status`) VALUES
+(1, 'admin', 'admin@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peerkalbar_taxon`
+-- Table structure for table `biodiversitywarriors_taxon`
 --
 
-CREATE TABLE IF NOT EXISTS `peerkalbar_taxon` (
+CREATE TABLE IF NOT EXISTS `biodiversitywarriors_taxon` (
 `id` int(11) NOT NULL,
   `rank` enum('family','genus','species','subspecies') DEFAULT NULL,
   `morphotype` varchar(100) DEFAULT NULL,
@@ -189,64 +196,64 @@ CREATE TABLE IF NOT EXISTS `peerkalbar_taxon` (
   `notes` varchar(500) DEFAULT NULL,
   `n_status` int(11) NOT NULL DEFAULT '0',
   `fullname` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1213157 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `peerkalbar_coll`
+-- Indexes for table `biodiversitywarriors_coll`
 --
-ALTER TABLE `peerkalbar_coll`
+ALTER TABLE `biodiversitywarriors_coll`
  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `collCode` (`collCode`), ADD KEY `indivID` (`indivID`);
 
 --
--- Indexes for table `peerkalbar_collector`
+-- Indexes for table `biodiversitywarriors_collector`
 --
-ALTER TABLE `peerkalbar_collector`
+ALTER TABLE `biodiversitywarriors_collector`
  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `coll_order` (`collID`,`order`), ADD UNIQUE KEY `coll_person` (`collID`,`personID`), ADD KEY `personID` (`personID`);
 
 --
--- Indexes for table `peerkalbar_det`
+-- Indexes for table `biodiversitywarriors_det`
 --
-ALTER TABLE `peerkalbar_det`
+ALTER TABLE `biodiversitywarriors_det`
  ADD PRIMARY KEY (`id`), ADD KEY `indivID` (`indivID`), ADD KEY `personID` (`personID`), ADD KEY `taxonID` (`taxonID`);
 
 --
--- Indexes for table `peerkalbar_img`
+-- Indexes for table `biodiversitywarriors_img`
 --
-ALTER TABLE `peerkalbar_img`
+ALTER TABLE `biodiversitywarriors_img`
  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `unique_file_person` (`personID`,`filename`), ADD KEY `indivID` (`indivID`), ADD KEY `personID` (`personID`);
 
 --
--- Indexes for table `peerkalbar_indiv`
+-- Indexes for table `biodiversitywarriors_indiv`
 --
-ALTER TABLE `peerkalbar_indiv`
+ALTER TABLE `biodiversitywarriors_indiv`
  ADD PRIMARY KEY (`id`), ADD KEY `locnID` (`locnID`);
 
 --
--- Indexes for table `peerkalbar_locn`
+-- Indexes for table `biodiversitywarriors_locn`
 --
-ALTER TABLE `peerkalbar_locn`
+ALTER TABLE `biodiversitywarriors_locn`
  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `peerkalbar_obs`
+-- Indexes for table `biodiversitywarriors_obs`
 --
-ALTER TABLE `peerkalbar_obs`
+ALTER TABLE `biodiversitywarriors_obs`
  ADD PRIMARY KEY (`id`), ADD KEY `personID` (`personID`), ADD KEY `indivID` (`indivID`);
 
 --
--- Indexes for table `peerkalbar_person`
+-- Indexes for table `biodiversitywarriors_person`
 --
-ALTER TABLE `peerkalbar_person`
+ALTER TABLE `biodiversitywarriors_person`
  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`), ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indexes for table `peerkalbar_taxon`
+-- Indexes for table `biodiversitywarriors_taxon`
 --
-ALTER TABLE `peerkalbar_taxon`
+ALTER TABLE `biodiversitywarriors_taxon`
  ADD PRIMARY KEY (`id`), ADD KEY `fullname` (`fullname`), ADD KEY `fam` (`fam`), ADD KEY `gen` (`gen`), ADD KEY `sp` (`sp`);
 
 --
@@ -254,95 +261,50 @@ ALTER TABLE `peerkalbar_taxon`
 --
 
 --
--- AUTO_INCREMENT for table `peerkalbar_coll`
+-- AUTO_INCREMENT for table `biodiversitywarriors_coll`
 --
-ALTER TABLE `peerkalbar_coll`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=540;
+ALTER TABLE `biodiversitywarriors_coll`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `peerkalbar_collector`
+-- AUTO_INCREMENT for table `biodiversitywarriors_collector`
 --
-ALTER TABLE `peerkalbar_collector`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=531;
+ALTER TABLE `biodiversitywarriors_collector`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `peerkalbar_det`
+-- AUTO_INCREMENT for table `biodiversitywarriors_det`
 --
-ALTER TABLE `peerkalbar_det`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=634;
+ALTER TABLE `biodiversitywarriors_det`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `peerkalbar_img`
+-- AUTO_INCREMENT for table `biodiversitywarriors_img`
 --
-ALTER TABLE `peerkalbar_img`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2116;
+ALTER TABLE `biodiversitywarriors_img`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `peerkalbar_indiv`
+-- AUTO_INCREMENT for table `biodiversitywarriors_indiv`
 --
-ALTER TABLE `peerkalbar_indiv`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=684;
+ALTER TABLE `biodiversitywarriors_indiv`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `peerkalbar_locn`
+-- AUTO_INCREMENT for table `biodiversitywarriors_locn`
 --
-ALTER TABLE `peerkalbar_locn`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=702;
+ALTER TABLE `biodiversitywarriors_locn`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `peerkalbar_obs`
+-- AUTO_INCREMENT for table `biodiversitywarriors_obs`
 --
-ALTER TABLE `peerkalbar_obs`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=637;
+ALTER TABLE `biodiversitywarriors_obs`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `peerkalbar_person`
+-- AUTO_INCREMENT for table `biodiversitywarriors_person`
 --
-ALTER TABLE `peerkalbar_person`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=201;
+ALTER TABLE `biodiversitywarriors_person`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `peerkalbar_taxon`
+-- AUTO_INCREMENT for table `biodiversitywarriors_taxon`
 --
-ALTER TABLE `peerkalbar_taxon`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1213157;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `peerkalbar_coll`
---
-ALTER TABLE `peerkalbar_coll`
-ADD CONSTRAINT `peerkalbar_coll_ibfk_1` FOREIGN KEY (`indivID`) REFERENCES `peerkalbar_indiv` (`id`);
-
---
--- Constraints for table `peerkalbar_collector`
---
-ALTER TABLE `peerkalbar_collector`
-ADD CONSTRAINT `peerkalbar_collector_ibfk_1` FOREIGN KEY (`collID`) REFERENCES `peerkalbar_coll` (`id`),
-ADD CONSTRAINT `peerkalbar_collector_ibfk_2` FOREIGN KEY (`personID`) REFERENCES `peerkalbar_person` (`id`);
-
---
--- Constraints for table `peerkalbar_det`
---
-ALTER TABLE `peerkalbar_det`
-ADD CONSTRAINT `peerkalbar_det_ibfk_1` FOREIGN KEY (`indivID`) REFERENCES `peerkalbar_indiv` (`id`),
-ADD CONSTRAINT `peerkalbar_det_ibfk_3` FOREIGN KEY (`personID`) REFERENCES `peerkalbar_person` (`id`),
-ADD CONSTRAINT `peerkalbar_det_ibfk_6` FOREIGN KEY (`taxonID`) REFERENCES `peerkalbar_taxon` (`id`);
-
---
--- Constraints for table `peerkalbar_img`
---
-ALTER TABLE `peerkalbar_img`
-ADD CONSTRAINT `peerkalbar_img_ibfk_1` FOREIGN KEY (`indivID`) REFERENCES `peerkalbar_indiv` (`id`),
-ADD CONSTRAINT `peerkalbar_img_ibfk_2` FOREIGN KEY (`personID`) REFERENCES `peerkalbar_person` (`id`);
-
---
--- Constraints for table `peerkalbar_indiv`
---
-ALTER TABLE `peerkalbar_indiv`
-ADD CONSTRAINT `peerkalbar_indiv_ibfk_4` FOREIGN KEY (`locnID`) REFERENCES `peerkalbar_locn` (`id`);
-
---
--- Constraints for table `peerkalbar_obs`
---
-ALTER TABLE `peerkalbar_obs`
-ADD CONSTRAINT `peerkalbar_obs_ibfk_1` FOREIGN KEY (`indivID`) REFERENCES `peerkalbar_indiv` (`id`),
-ADD CONSTRAINT `peerkalbar_obs_ibfk_2` FOREIGN KEY (`personID`) REFERENCES `peerkalbar_person` (`id`);
-
+ALTER TABLE `biodiversitywarriors_taxon`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

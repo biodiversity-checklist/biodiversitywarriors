@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 14, 2015 at 02:51 PM
+-- Generation Time: Sep 19, 2015 at 04:11 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -17,31 +17,60 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `ft2_floraINA_peerkalbar_extra`
+-- Database: `ft2_floraINA_biodiversitywarriors_extra`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peerkalbar_mail_log`
+-- Table structure for table `biodiversitywarriors_code_activity`
 --
 
-CREATE TABLE IF NOT EXISTS `peerkalbar_mail_log` (
+CREATE TABLE IF NOT EXISTS `biodiversitywarriors_code_activity` (
+`id` int(11) NOT NULL,
+  `activityId` int(11) NOT NULL,
+  `activityValue` varchar(50) NOT NULL,
+  `n_status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `biodiversitywarriors_code_activity_log`
+--
+
+CREATE TABLE IF NOT EXISTS `biodiversitywarriors_code_activity_log` (
+`id` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `activityId` int(11) NOT NULL,
+  `activityDesc` text NOT NULL,
+  `source` varchar(20) NOT NULL,
+  `datetimes` datetime NOT NULL,
+  `n_status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `biodiversitywarriors_mail_log`
+--
+
+CREATE TABLE IF NOT EXISTS `biodiversitywarriors_mail_log` (
 `id` int(11) NOT NULL,
   `receipt` varchar(50) DEFAULT NULL,
   `subject` varchar(100) DEFAULT NULL,
   `encode` text,
   `send_date` datetime DEFAULT NULL,
   `n_status` int(11) DEFAULT '0'
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=52 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peerkalbar_person`
+-- Table structure for table `biodiversitywarriors_person_extra`
 --
 
-CREATE TABLE IF NOT EXISTS `peerkalbar_person` (
+CREATE TABLE IF NOT EXISTS `biodiversitywarriors_person_extra` (
   `id` int(11) NOT NULL,
   `password` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
@@ -55,13 +84,20 @@ CREATE TABLE IF NOT EXISTS `peerkalbar_person` (
   `n_status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `biodiversitywarriors_person_extra`
+--
+
+INSERT INTO `biodiversitywarriors_person_extra` (`id`, `password`, `username`, `salt`, `register_date`, `verified_date`, `last_login`, `login_count`, `user_type`, `email_token`, `n_status`) VALUES
+(1, '123123', 'admin', '123123', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, '', 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peerkalbar_upload_log`
+-- Table structure for table `biodiversitywarriors_upload_log`
 --
 
-CREATE TABLE IF NOT EXISTS `peerkalbar_upload_log` (
+CREATE TABLE IF NOT EXISTS `biodiversitywarriors_upload_log` (
 `id` int(11) NOT NULL,
   `userid` int(11) DEFAULT NULL,
   `filename` varchar(200) DEFAULT NULL,
@@ -187,21 +223,33 @@ CREATE TABLE IF NOT EXISTS `tmp_taxon` (
 --
 
 --
--- Indexes for table `peerkalbar_mail_log`
+-- Indexes for table `biodiversitywarriors_code_activity`
 --
-ALTER TABLE `peerkalbar_mail_log`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `receipt` (`receipt`,`subject`);
-
---
--- Indexes for table `peerkalbar_person`
---
-ALTER TABLE `peerkalbar_person`
+ALTER TABLE `biodiversitywarriors_code_activity`
  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `peerkalbar_upload_log`
+-- Indexes for table `biodiversitywarriors_code_activity_log`
 --
-ALTER TABLE `peerkalbar_upload_log`
+ALTER TABLE `biodiversitywarriors_code_activity_log`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `biodiversitywarriors_mail_log`
+--
+ALTER TABLE `biodiversitywarriors_mail_log`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `receipt` (`receipt`,`subject`);
+
+--
+-- Indexes for table `biodiversitywarriors_person_extra`
+--
+ALTER TABLE `biodiversitywarriors_person_extra`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `biodiversitywarriors_upload_log`
+--
+ALTER TABLE `biodiversitywarriors_upload_log`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -209,14 +257,24 @@ ALTER TABLE `peerkalbar_upload_log`
 --
 
 --
--- AUTO_INCREMENT for table `peerkalbar_mail_log`
+-- AUTO_INCREMENT for table `biodiversitywarriors_code_activity`
 --
-ALTER TABLE `peerkalbar_mail_log`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=52;
+ALTER TABLE `biodiversitywarriors_code_activity`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `peerkalbar_upload_log`
+-- AUTO_INCREMENT for table `biodiversitywarriors_code_activity_log`
 --
-ALTER TABLE `peerkalbar_upload_log`
+ALTER TABLE `biodiversitywarriors_code_activity_log`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `biodiversitywarriors_mail_log`
+--
+ALTER TABLE `biodiversitywarriors_mail_log`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `biodiversitywarriors_upload_log`
+--
+ALTER TABLE `biodiversitywarriors_upload_log`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
